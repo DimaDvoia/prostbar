@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коктейльный бар</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Prost Bar</div>
+        <nav>
+            <ul>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#price">Прайс</a></li>
+                <li><a href="#cocktails">Коктейли</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <div class="hero-image">
+                <img src="images/image.png" alt="Prost Bar - выездной коктейль бар">
+                <div class="hero-text">
+
+                    <h2 class="hero-title">PROST BAR</h2>
+                    <p class="hero-description">Prost Bar - выездной коктейль-бар под ключ.             Мы берем на себя заботы - вы наслаждаетесь.</p>
+                    <button class="button" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})">Подать заявку</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="price">
+            <h2>Прайс и кейсы</h2>
+            <div class="price-list">
+                <div class="price-card">
+                    <div class="price-details">
+                        <div class="price-features">
+                            <ul>
+                                <li>3 часа</li>
+                                <li>150 коктейлей</li>
+                                <li>2 бартендера</li>
+                            </ul>
+                        </div>
+                        <div class="price-capacity">
+                            <p>~30 человек</p>
+                        </div>
+                    </div>
+                    <div class="price-divider"></div>
+                    <div class="price-amount">
+                        <p>~30 000 рублей</p>
+                    </div>
+                </div>
+
+                <div class="price-card premium">
+                    <div class="premium-label">Премиум</div>
+                    <div class="price-details">
+                        <div class="price-features">
+                            <ul>
+                                <li>5 часов</li>
+                                <li>200 коктейлей</li>
+                                <li>2 бартендера</li>
+                            </ul>
+                        </div>
+                        <div class="price-capacity">
+                            <p>~60 человек</p>
+                        </div>
+                    </div>
+                    <div class="price-divider"></div>
+                    <div class="price-amount">
+                        <p>~50 000 рублей</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cocktails">
+            <h2>Наши коктейли</h2>
+            <div class="cocktails-intro">
+                <p>Перед вами карта напитков Prost Bar.</p>
+                <p>Органические и авторские ингредиенты.</p>
+            </div>
+            <div class="cocktail-slider-container">
+                <button class="slider-button prev">&#10094;</button>
+                <div class="cocktail-slider">
+                    <div class="cocktail-grid">
+                        <div class="cocktail-card">
+                            <div class="cocktail-image">
+                                <img src="images/cocktail1.jpg" alt="Негрони">
+                            </div>
+                            <h3>Негрони</h3>
+                            <p class="cocktail-description">Описание коктейля, ингредиенты и особенности приготовления.</p>
+                        </div>
+                        <div class="cocktail-card">
+                            <div class="cocktail-image">
+                                <img src="images/cocktail1.jpg" alt="Мохито">
+                            </div>
+                            <h3>Мохито</h3>
+                            <p class="cocktail-description">Описание коктейля, ингредиенты и особенности приготовления.</p>
+                        </div>
+                        <div class="cocktail-card">
+                            <div class="cocktail-image">
+                                <img src="images/cocktail1.jpg" alt="Маргарита">
+                            </div>
+                            <h3>Маргарита</h3>
+                            <p class="cocktail-description">Описание коктейля, ингредиенты и особенности приготовления.</p>
+                        </div>
+                        <div class="cocktail-card">
+                            <div class="cocktail-image">
+                                <img src="images/cocktail1.jpg" alt="Дайкири">
+                            </div>
+                            <h3>Дайкири</h3>
+                            <p class="cocktail-description">Классический ромовый коктейль с лаймовым соком и сахарным сиропом.</p>
+                        </div>
+                        <div class="cocktail-card">
+                            <div class="cocktail-image">
+                                <img src="images/cocktail1.jpg" alt="Пина Колада">
+                            </div>
+                            <h3>Пина Колада</h3>
+                            <p class="cocktail-description">Тропический микс рома, кокосового молока и ананасового сока.</p>
+                        </div>
+                        <div class="cocktail-card">
+                            <div class="cocktail-image">
+                                <img src="images/cocktail1.jpg" alt="Космополитен">
+                            </div>
+                            <h3>Космополитен</h3>
+                            <p class="cocktail-description">Элегантное сочетание водки, клюквенного сока и ликера трипл сек.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-button next">&#10095;</button>
+            </div>
+        </section>
+
+        <section id="contacts">
+            <h2>Давайте общаться</h2>
+            <div class="contacts-container">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Телефон" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Ваше сообщение" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="button">Отправить заявку</button>
+                    </form>
+                    <div class="form-message" id="formMessage">
+                        <p>Спасибо за заявку! Мы свяжемся с вами в ближайшее время.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contacts">
+                <a href="https://wa.me/79999999999" class="contact-item">
+                    <svg class="social-icon whatsapp-icon" viewBox="0 0 24 24">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+                    </svg>
+                    <span>WhatsApp: +7 (999) 999-99-99 Михаил</span>
+                </a>
+                <a href="mailto:Prost.Bar@yandex.ru" class="contact-item">
+                    <svg class="social-icon email-icon" viewBox="0 0 24 24">
+                        <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 8c.266 0 .5.094.707.293l4.785 4.785-1.414 1.414-3.318-3.318v6.826h-2v-6.826l-3.318 3.318-1.414-1.414 4.785-4.785c.207-.199.441-.293.707-.293z"/>
+                    </svg>
+                    <span>Email: Prost.Bar@yandex.ru</span>
+                </a>
+                <a href="https://instagram.com/prost.bar" class="contact-item">
+                    <svg class="social-icon instagram-icon" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span>Instagram: prost.bar</span>
+                </a>
+            </div>
+            <p class="copyright">&copy; 2024 Коктейльный бар. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

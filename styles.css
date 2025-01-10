@@ -1,0 +1,663 @@
+:root {
+    --dark-bg: #1a0f0f; /* Темный фон с бордовым оттенком */
+    --gold: #FFB800; /* Золотой цвет для акцентов */
+    --burgundy: #2B0F0F; /* Темно-бордовый для элементов */
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-color: rgba(43, 15, 15, 0.95); /* Более глубокий бордовый оттенок с небольшой прозрачностью */
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Добавляем легкую тень для глубины */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--gold);
+}
+
+main {
+    margin-top: 0;
+}
+
+section {
+    padding: 2rem 2rem;
+    min-height: 50vh;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+footer {
+    background-color: var(--burgundy);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-contacts {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    color: var(--gold);
+    font-size: 2.2rem;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-bottom: 0;
+    margin-top: 0;
+    position: relative;
+    top: 0;
+    clip-path: ellipse(75% 100% at 50% 0); /* овальная форма */
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    filter: blur(1px);
+    transform: scale(1.1);
+    transition: filter 0.3s ease;
+}
+
+/* Добавляем градиентное размытие */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(26, 15, 15, 0.9) 0%,
+        rgba(26, 15, 15, 0.7) 30%,
+        rgba(26, 15, 15, 0.3) 60%,
+        rgba(26, 15, 15, 0) 100%
+    );
+    z-index: 1;
+}
+
+/* Затемнение поверх градиента */
+.hero-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    color: var(--white);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.hero-title {
+    color: var(--gold);
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.hero-description {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--gold);
+}
+
+.description {
+    font-size: 1.2rem;
+    color: var(--white);
+}
+
+#about {
+    padding-top: 0;
+}
+
+/* Стилизация кнопок */
+.button {
+    background-color: var(--gold);
+    color: var(--dark-bg);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: #ffc830;
+}
+
+.price-list {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem; /* расстояние между карточками */
+    padding: 2rem;
+    flex-wrap: wrap; /* для адаптивности */
+}
+
+.price-card {
+    background-color: rgba(43, 15, 15, 0.7);
+    border-radius: 8px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px; /* уменьшаем максимальную ширину для карточек */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* Стили для премиум карточки */
+.price-card.premium {
+    background-color: rgba(43, 15, 15, 0.85); /* немного темнее фон */
+    border: 1px solid var(--gold);
+    box-shadow: 0 4px 25px rgba(255, 184, 0, 0.15); /* золотистая тень */
+}
+
+.premium-label {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: var(--gold);
+    color: var(--dark-bg);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.price-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.price-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.price-features li {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.price-capacity {
+    color: var(--white);
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.price-divider {
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--gold),
+        transparent
+    );
+    margin: 1.5rem 0;
+}
+
+.price-amount {
+    text-align: right;
+    color: var(--gold);
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Стили для стандартной карточки */
+.price-card.standard {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.standard-label {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: var(--white);
+    color: var(--dark-bg);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* Добавляем эффект наведения для карточек */
+.price-card:hover {
+    transform: translateY(-5px);
+}
+
+#price {
+    margin-top: -50px; /* уменьшаем отрицательный отступ с -250px до -50px */
+    position: relative;
+    z-index: 2;
+}
+
+/* Стилизация заголовка секции */
+#price h2 {
+    color: var(--white);
+    margin-bottom: 2rem; /* уменьшаем отступ снизу с 3rem до 2rem */
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+}
+
+/* Стили для секции коктейлей */
+.cocktails-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: var(--white);
+}
+
+.cocktails-intro p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.cocktail-grid {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.5s ease;
+}
+
+.cocktail-card {
+    flex: 0 0 calc((100% - 4rem) / 3);
+    background: rgba(43, 15, 15, 0.7);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cocktail-card:hover {
+    transform: translateY(-5px);
+}
+
+.cocktail-image {
+    width: 100%;
+    padding-top: 75%; /* создаем соотношение сторон 4:3 */
+    position: relative;
+    overflow: hidden;
+}
+
+.cocktail-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* центрируем изображение */
+    transition: transform 0.3s ease;
+}
+
+.cocktail-card:hover .cocktail-image img {
+    transform: scale(1.05);
+}
+
+.cocktail-card h3 {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.cocktail-description {
+    color: var(--white);
+    padding: 0 1rem 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+#cocktails h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.cocktail-slider-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    overflow: hidden;
+}
+
+.cocktail-slider {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--gold);
+    color: var(--dark-bg);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 3;
+    transition: background-color 0.3s ease;
+}
+
+.slider-button:hover {
+    background-color: #ffc830;
+}
+
+.slider-button.prev {
+    left: 0;
+}
+
+.slider-button.next {
+    right: 0;
+}
+
+/* Стили для секции контактов */
+.contacts-container {
+    max-width: 600px; /* уменьшаем максимальную ширину */
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.contact-form {
+    background: rgba(43, 15, 15, 0.7);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px; /* увеличиваем padding */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    color: var(--white);
+    font-size: 1.1rem; /* увеличиваем размер шрифта */
+    margin-bottom: 1.5rem;
+}
+
+.contact-form .button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+/* Обновленные стили для футера */
+footer {
+    background-color: var(--burgundy);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-contacts {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .footer-contacts {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: fill 0.3s ease;
+}
+
+.whatsapp-icon {
+    color: #25D366;
+}
+
+.instagram-icon {
+    color: #E4405F;
+}
+
+.email-icon {
+    color: var(--gold);
+}
+
+.contact-item:hover .social-icon {
+    fill: var(--gold);
+}
+
+.contact-item {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.form-message {
+    display: none;
+    background: rgba(37, 211, 102, 0.2); /* зеленый полупрозрачный фон */
+    border: 1px solid #25D366;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--white);
+}
+
+.form-message.show {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    resize: vertical;
+    min-height: 120px;
+    font-family: Arial, sans-serif;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.hero-text .button {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 184, 0, 0.3);
+    transition: all 0.3s ease;
+    color: #000000;
+}
+
+.hero-text .button:hover {
+    background-color: #ffc830;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 184, 0, 0.4);
+    color: #000000;
+} 
