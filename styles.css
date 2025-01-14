@@ -1,25 +1,27 @@
 :root {
-    --dark-bg: #1a0f0f; /* Темный фон с бордовым оттенком */
-    --gold: #FFB800; /* Золотой цвет для акцентов */
-    --burgundy: #2B0F0F; /* Темно-бордовый для элементов */
-    --white: #ffffff;
+    --dark-bg: #F5F5F5; /* Светлый фон */
+    --gold: #D4B572; /* Бежевый акцент */
+    --burgundy: #E8E1D5; /* Светлый бежевый для элементов */
+    --white: #FFFFFF;
+    --text-dark: #2C2C2C; /* Тёмный цвет для текста */
+    --beige-dark: #C4A66B; /* Тёмный бежевый для акцентов */
 }
 
 body {
     background-color: var(--dark-bg);
-    color: var(--white);
+    color: var(--text-dark);
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
 
 header {
-    background-color: rgba(43, 15, 15, 0.95); /* Более глубокий бордовый оттенок с небольшой прозрачностью */
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 1rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Добавляем легкую тень для глубины */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -34,7 +36,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--white);
+    color: var(--text-dark);
     text-decoration: none;
     font-size: 1.2rem;
     font-family: 'Playfair Display', serif;
@@ -43,16 +45,21 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--gold);
+    color: var(--beige-dark);
 }
 
 main {
-    margin-top: 0;
+    position: relative;
+    z-index: 1;
+    background-color: var(--dark-bg);
+    margin-top: 0; /* Убираем отступ сверху */
 }
 
 section {
     padding: 2rem 2rem;
-    min-height: 50vh;
+    min-height: 100vh; /* Каждая секция на всю высоту экрана */
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 h1, h2 {
@@ -81,7 +88,7 @@ footer {
 }
 
 .contact-item {
-    color: var(--white);
+    color: var(--text-dark);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -90,7 +97,7 @@ footer {
 }
 
 .contact-item:hover {
-    color: var(--gold);
+    color: var(--beige-dark);
 }
 
 .copyright {
@@ -102,7 +109,7 @@ footer {
 }
 
 .logo {
-    color: var(--gold);
+    color: var(--beige-dark);
     font-size: 2.2rem;
     font-weight: 600;
     font-family: 'Playfair Display', serif;
@@ -115,14 +122,9 @@ footer {
 }
 
 .hero-image {
-    width: 100%;
+    position: relative;
     height: 100vh;
     overflow: hidden;
-    margin-bottom: 0;
-    margin-top: 0;
-    position: relative;
-    top: 0;
-    clip-path: ellipse(75% 100% at 50% 0); /* овальная форма */
 }
 
 .hero-image img {
@@ -130,14 +132,11 @@ footer {
     height: 100%;
     object-fit: cover;
     display: block;
-    margin-left: 0;
-    margin-right: 0;
-    filter: blur(1px);
-    transform: scale(1.1);
-    transition: filter 0.3s ease;
+    transform: translateY(0); /* Начальная позиция для параллакса */
+    will-change: transform; /* Оптимизация производительности */
 }
 
-/* Добавляем градиентное размытие */
+/* Обновляем градиент */
 .hero-image::before {
     content: '';
     position: absolute;
@@ -146,57 +145,57 @@ footer {
     width: 100%;
     height: 100%;
     background: linear-gradient(
-        to right,
-        rgba(26, 15, 15, 0.9) 0%,
-        rgba(26, 15, 15, 0.7) 30%,
-        rgba(26, 15, 15, 0.3) 60%,
-        rgba(26, 15, 15, 0) 100%
+        to bottom,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.6) 100%
     );
     z-index: 1;
 }
 
-/* Затемнение поверх градиента */
+/* Убираем дополнительное затемнение */
 .hero-image::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    display: none;
 }
 
 .hero-text {
     position: absolute;
     top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2;
-    max-width: 600px;
+    max-width: 800px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 .hero-text h1 {
-    color: var(--white);
+    color: var(--text-dark);
     font-size: 2rem;
     margin-bottom: 1rem;
     text-align: left;
 }
 
 .hero-title {
-    color: var(--gold);
-    font-size: 4rem;
+    color: var(--white);
+    font-size: 4.5rem;
     font-weight: bold;
-    margin-bottom: 1.5rem;
-    text-align: left;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-description {
     color: var(--white);
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-    max-width: 500px;
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .about-content {
@@ -224,8 +223,8 @@ footer {
 
 /* Стилизация кнопок */
 .button {
-    background-color: var(--gold);
-    color: var(--dark-bg);
+    background-color: var(--beige-dark);
+    color: var(--white);
     padding: 12px 24px;
     border: none;
     border-radius: 4px;
@@ -237,33 +236,39 @@ footer {
 }
 
 .button:hover {
-    background-color: #ffc830;
+    background-color: var(--gold);
 }
 
 .price-list {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 2rem; /* расстояние между карточками */
+    gap: 3rem; /* увеличиваем расстояние между карточками */
     padding: 2rem;
-    flex-wrap: wrap; /* для адаптивности */
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .price-card {
-    background-color: rgba(43, 15, 15, 0.7);
+    background-color: var(--white);
     border-radius: 8px;
-    padding: 2rem;
+    padding: 3rem;
     width: 100%;
-    max-width: 400px; /* уменьшаем максимальную ширину для карточек */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     position: relative;
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px; /* фиксированная минимальная высота */
 }
 
 /* Стили для премиум карточки */
 .price-card.premium {
-    background-color: rgba(43, 15, 15, 0.85); /* немного темнее фон */
-    border: 1px solid var(--gold);
+    background-color: var(--burgundy);
+    border: 1px solid var(--beige-dark);
     box-shadow: 0 4px 25px rgba(255, 184, 0, 0.15); /* золотистая тень */
 }
 
@@ -271,8 +276,8 @@ footer {
     position: absolute;
     top: -12px;
     right: 20px;
-    background-color: var(--gold);
-    color: var(--dark-bg);
+    background-color: var(--beige-dark);
+    color: var(--white);
     padding: 4px 12px;
     border-radius: 4px;
     font-weight: bold;
@@ -283,8 +288,13 @@ footer {
 .price-details {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
+    align-items: flex-start; /* выравнивание по верхнему краю */
+    margin-bottom: 2rem;
+    gap: 2rem; /* отступ между колонками */
+}
+
+.price-features {
+    flex: 1;
 }
 
 .price-features ul {
@@ -294,16 +304,20 @@ footer {
 }
 
 .price-features li {
-    color: var(--white);
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
     font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 .price-capacity {
-    color: var(--white);
-    font-size: 1.4rem;
+    color: var(--text-dark);
+    font-size: 2rem;
     font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    white-space: nowrap; /* предотвращаем перенос */
 }
 
 .price-divider {
@@ -311,18 +325,19 @@ footer {
     background: linear-gradient(
         to right,
         transparent,
-        var(--gold),
+        var(--beige-dark),
         transparent
     );
-    margin: 1.5rem 0;
+    margin: 2rem 0;
 }
 
 .price-amount {
     text-align: right;
-    color: var(--gold);
-    font-size: 1.6rem;
+    color: var(--beige-dark);
+    font-size: 2.2rem;
     font-weight: bold;
     font-family: 'Playfair Display', serif;
+    margin-top: auto; /* прижимаем цену к низу */
 }
 
 /* Стили для стандартной карточки */
@@ -349,57 +364,136 @@ footer {
 }
 
 #price {
-    margin-top: -50px; /* уменьшаем отрицательный отступ с -250px до -50px */
+    padding-top: 4rem; /* увеличиваем отступ сверху */
     position: relative;
     z-index: 2;
 }
 
+.price-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem; /* добавляем отступ снизу */
+    padding: 0 2rem;
+}
+
+.price-intro h3 {
+    color: var(--beige-dark);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-intro p {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Обновляем отступ для списка прайсов */
+.price-list {
+    margin-top: 2rem;
+}
+
 /* Стилизация заголовка секции */
 #price h2 {
-    color: var(--white);
-    margin-bottom: 2rem; /* уменьшаем отступ снизу с 3rem до 2rem */
+    color: var(--text-dark);
+    margin-bottom: 2rem;
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
 }
 
 /* Стили для секции коктейлей */
+#cocktails {
+    padding: 4rem 2rem;
+}
+
 .cocktails-intro {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 3rem;
-    color: var(--white);
+    margin: 0 auto 4rem;
 }
 
 .cocktails-intro p {
+    color: var(--text-dark);
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.cocktail-categories {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: none; /* Убираем фон */
+    border-radius: 0;
+    box-shadow: none; /* Убираем тень */
+}
+
+.category h3 {
+    color: var(--beige-dark);
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
     font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
 }
 
-.cocktail-grid {
-    display: flex;
+.category h3:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--beige-dark);
+}
+
+.category-description {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    font-style: italic;
+    max-width: 800px;
+}
+
+.cocktail-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 2rem;
-    transition: transform 0.5s ease;
+    margin-top: 3rem;
 }
 
-.cocktail-card {
-    flex: 0 0 calc((100% - 4rem) / 3);
-    background: rgba(43, 15, 15, 0.7);
-    border-radius: 8px;
+.cocktail-item {
+    background: none; /* Убираем фон */
+    border-radius: 0;
     overflow: hidden;
+    box-shadow: none; /* Убираем тень */
     transition: transform 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.cocktail-card:hover {
+.cocktail-item:hover {
     transform: translateY(-5px);
 }
 
 .cocktail-image {
     width: 100%;
-    padding-top: 75%; /* создаем соотношение сторон 4:3 */
+    padding-top: 75%;
     position: relative;
     overflow: hidden;
+    border-radius: 8px;
+    max-width: 220px;
+    margin: 0 auto;
 }
 
 .cocktail-image img {
@@ -409,105 +503,102 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center; /* центрируем изображение */
-    transition: transform 0.3s ease;
+    object-position: center;
 }
 
-.cocktail-card:hover .cocktail-image img {
-    transform: scale(1.05);
+.cocktail-content {
+    padding: 0.8rem 0;
+    text-align: center;
 }
 
-.cocktail-card h3 {
-    color: var(--gold);
-    font-size: 1.5rem;
-    margin: 1rem;
-    font-family: 'Playfair Display', serif;
+.cocktail-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
 }
 
-.cocktail-description {
-    color: var(--white);
-    padding: 0 1rem 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.4;
+.cocktail-item p {
+    font-size: 0.9rem;
 }
 
+/* Стилизация заголовка секции */
 #cocktails h2 {
-    color: var(--white);
+    color: var(--text-dark);
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     font-family: 'Playfair Display', serif;
 }
 
-.cocktail-slider-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-    overflow: hidden;
-}
-
-.cocktail-slider {
-    overflow: hidden;
-    width: 100%;
-}
-
-.slider-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--gold);
-    color: var(--dark-bg);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    z-index: 3;
-    transition: background-color 0.3s ease;
-}
-
-.slider-button:hover {
-    background-color: #ffc830;
-}
-
-.slider-button.prev {
-    left: 0;
-}
-
-.slider-button.next {
-    right: 0;
-}
-
 /* Стили для секции контактов */
+#contacts {
+    padding: 4rem 2rem;
+    margin-top: 4rem; /* Добавляем отступ сверху */
+}
+
 .contacts-container {
-    max-width: 600px; /* уменьшаем максимальную ширину */
+    max-width: 600px;
     margin: 0 auto;
     padding: 2rem;
 }
 
 .contact-form {
-    background: rgba(43, 15, 15, 0.7);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background: none; /* Убираем фон */
+    padding: 0; /* Убираем внутренние отступы */
+    border-radius: 0;
+    box-shadow: none; /* Убираем тень */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
 }
 
 .form-group input {
     width: 100%;
-    padding: 15px; /* увеличиваем padding */
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    color: var(--white);
-    font-size: 1.1rem; /* увеличиваем размер шрифта */
-    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--beige-dark);
 }
 
 .contact-form .button {
     width: 100%;
-    padding: 15px;
+    padding: 1rem;
     font-size: 1.2rem;
+    background: var(--beige-dark);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .button:hover {
+    background-color: var(--burgundy);
+}
+
+/* Стили для заголовка секции */
+#contacts h2 {
+    color: var(--text-dark);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
+
+/* Добавляем описание под заголовком */
+.contacts-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 /* Обновленные стили для футера */
@@ -532,7 +623,7 @@ footer {
 }
 
 .contact-item {
-    color: var(--white);
+    color: var(--text-dark);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -541,7 +632,7 @@ footer {
 }
 
 .contact-item:hover {
-    color: var(--gold);
+    color: var(--beige-dark);
 }
 
 .copyright {
@@ -624,10 +715,10 @@ footer {
 .form-group textarea {
     width: 100%;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--dark-bg);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    color: var(--white);
+    color: var(--text-dark);
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     resize: vertical;
@@ -660,4 +751,256 @@ footer {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 184, 0, 0.4);
     color: #000000;
+}
+
+.hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(0);
+    transition: transform 0.1s linear;
+}
+
+.hero-slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slideshow img.active {
+    opacity: 1;
+}
+
+.creator-section {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.creator-photo {
+    flex: 0 0 400px;
+    height: 500px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.creator-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.creator-photo:hover img {
+    transform: scale(1.03);
+}
+
+.creator-info {
+    flex: 1;
+    padding: 2rem;
+}
+
+.creator-info h3 {
+    color: var(--text-dark);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.creator-position {
+    color: var(--beige-dark);
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.creator-description {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.creator-quote {
+    color: var(--beige-dark);
+    font-size: 1.4rem;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    padding-left: 1rem;
+    border-left: 3px solid var(--beige-dark);
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .creator-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .creator-photo {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .creator-quote {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
+.cocktail-image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.cocktail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.cocktail-item:hover .cocktail-image img {
+    transform: scale(1.05);
+}
+
+/* Базовые стили для мобильного меню */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.burger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    transition: all 0.3s ease;
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    /* Стили для header */
+    header {
+        padding: 15px;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 80px 20px;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul li a {
+        color: white;
+        font-size: 24px;
+    }
+
+    /* Стили для секции hero */
+    .hero-text {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    /* Стили для секции creator */
+    .creator-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .creator-photo {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .creator-info {
+        width: 100%;
+        padding: 0;
+    }
+
+    /* Стили для секции price */
+    .price-list {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .price-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    /* Стили для формы контактов */
+    .contact-form {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Стили для футера */
+    .footer-content {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .footer-contacts {
+        margin-bottom: 20px;
+    }
+}
+
+/* Дополнительные стили для маленьких экранов */
+@media screen and (max-width: 480px) {
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .price-card {
+        padding: 15px;
+    }
 } 

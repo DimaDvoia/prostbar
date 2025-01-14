@@ -12,6 +12,11 @@
 <body>
     <header>
         <div class="logo">Prost Bar</div>
+        <div class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <nav>
             <ul>
                 <li><a href="#about">О нас</a></li>
@@ -25,18 +30,46 @@
     <main>
         <section id="about">
             <div class="hero-image">
-                <img src="images/image.png" alt="Prost Bar - выездной коктейль бар">
+                <div class="hero-slideshow">
+                    <img src="images/image1.jpg" alt="Prost Bar 1" class="active">
+                    <img src="images/image2.jpg" alt="Prost Bar 2">
+                    <img src="images/image3.jpg" alt="Prost Bar 3">
+                    <img src="images/image4.jpg" alt="Prost Bar 4">
+                    <img src="images/image5.jpg" alt="Prost Bar 5">
+                </div>
                 <div class="hero-text">
-
                     <h2 class="hero-title">PROST BAR</h2>
-                    <p class="hero-description">Prost Bar - выездной коктейль-бар под ключ.             Мы берем на себя заботы - вы наслаждаетесь.</p>
-                    <button class="button" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})">Подать заявку</button>
+                    <p class="hero-description">Prost Bar - выездной коктейль-бар под ключ. Мы берем на себя заботы - вы наслаждаетесь.</p>
+                    <a href="#contacts" class="button">Подать заявку</a>
+                </div>
+            </div>
+            
+            <div class="creator-section">
+                <div class="creator-photo">
+                    <img src="images/creator.jpg" alt="Создатель Prost Bar">
+                </div>
+                <div class="creator-info">
+                    <h3>Михаил Мулявка</h3>
+                    <p class="creator-position">Основатель Prost Bar</p>
+                    <p class="creator-description">
+                        Привет! Я профессиональный бармен с опытом работы более 10 лет. 
+                        Создал Prost Bar, чтобы делать ваши мероприятия особенными через 
+                        искусство коктейлей. Мы используем только премиальные ингредиенты 
+                        и создаем неповторимую атмосферу на каждом событии.
+                    </p>
+                    <p class="creator-quote">
+                        "Каждый коктейль - это история, каждое мероприятие - особенное событие"
+                    </p>
                 </div>
             </div>
         </section>
 
         <section id="price">
             <h2>Прайс и кейсы</h2>
+            <div class="price-intro">
+                <h3>НЕСКОЛЬКО ВАРИАНТОВ С ФИКСИРОВАННОЙ СТОИМОСТЬЮ</h3>
+                <p>Мы хотим избавить вас от хлопот, поэтому работаем по системе «под ключ»: закуп всего необходимого, бокалы (стекло) и лед мы берем на себя.</p>
+            </div>
             <div class="price-list">
                 <div class="price-card">
                     <div class="price-details">
@@ -80,86 +113,39 @@
         </section>
 
         <section id="cocktails">
-            <h2>Наши коктейли</h2>
+            <h2>Коктейльное меню</h2>
             <div class="cocktails-intro">
-                <p>Перед вами карта напитков Prost Bar.</p>
-                <p>Органические и авторские ингредиенты.</p>
+                <p>Мы постоянно экспериментируем со вкусами и технологиями и следуем последним трендам барной индустрии.</p>
+                <p>И мы очень хотим разделить наше представление о современном Выездном баре с Вами.</p>
+                <p>Открыть новые вкусы и сочетания вместе.</p>
             </div>
-            <div class="cocktail-slider-container">
-                <button class="slider-button prev">&#10094;</button>
-                <div class="cocktail-slider">
-                    <div class="cocktail-grid">
-                        <div class="cocktail-card">
-                            <div class="cocktail-image">
-                                <img src="images/cocktail1.jpg" alt="Негрони">
-                            </div>
-                            <h3>Негрони</h3>
-                            <p class="cocktail-description">Описание коктейля, ингредиенты и особенности приготовления.</p>
-                        </div>
-                        <div class="cocktail-card">
-                            <div class="cocktail-image">
-                                <img src="images/cocktail1.jpg" alt="Мохито">
-                            </div>
-                            <h3>Мохито</h3>
-                            <p class="cocktail-description">Описание коктейля, ингредиенты и особенности приготовления.</p>
-                        </div>
-                        <div class="cocktail-card">
-                            <div class="cocktail-image">
-                                <img src="images/cocktail1.jpg" alt="Маргарита">
-                            </div>
-                            <h3>Маргарита</h3>
-                            <p class="cocktail-description">Описание коктейля, ингредиенты и особенности приготовления.</p>
-                        </div>
-                        <div class="cocktail-card">
-                            <div class="cocktail-image">
-                                <img src="images/cocktail1.jpg" alt="Дайкири">
-                            </div>
-                            <h3>Дайкири</h3>
-                            <p class="cocktail-description">Классический ромовый коктейль с лаймовым соком и сахарным сиропом.</p>
-                        </div>
-                        <div class="cocktail-card">
-                            <div class="cocktail-image">
-                                <img src="images/cocktail1.jpg" alt="Пина Колада">
-                            </div>
-                            <h3>Пина Колада</h3>
-                            <p class="cocktail-description">Тропический микс рома, кокосового молока и ананасового сока.</p>
-                        </div>
-                        <div class="cocktail-card">
-                            <div class="cocktail-image">
-                                <img src="images/cocktail1.jpg" alt="Космополитен">
-                            </div>
-                            <h3>Космополитен</h3>
-                            <p class="cocktail-description">Элегантное сочетание водки, клюквенного сока и ликера трипл сек.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="slider-button next">&#10095;</button>
+
+            <div class="cocktail-categories">
+                <!-- Сюда будут загружаться коктейли -->
             </div>
         </section>
 
         <section id="contacts">
             <h2>Давайте общаться</h2>
+            <p class="contacts-intro">
+                Заинтересовало? Свяжитесь с нами, и мы обязательно ответим в ближайшее время.
+            </p>
             <div class="contacts-container">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Телефон" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Ваше сообщение" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="button">Отправить заявку</button>
-                    </form>
-                    <div class="form-message" id="formMessage">
-                        <p>Спасибо за заявку! Мы свяжемся с вами в ближайшее время.</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Ваше имя" required>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Телефон" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Ваше сообщение" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="button">Отправить заявку</button>
+                </form>
             </div>
         </section>
     </main>
